@@ -1,1 +1,12 @@
-{}
+{
+  "invokerPackage": "OpenCorreios",
+  "variableNamingConvention": "camelCase",
+  "srcBasePath": "src",
+  "legacyDiscriminatorBehavior": false,
+  "globalProperties": {
+    "apiDocs": true,
+    "modelDocs": false,
+    "modelTests": false,
+    "apiTests": false
+  }
+}
