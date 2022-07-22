@@ -4,8 +4,9 @@
 .history/
 
 ## Project
-gen/
-vendor/
+gen/*
+vendor/*
+.openapi-generator/*
 
 ## MacOS
 .DS_Store
