@@ -1,0 +1,7 @@
+.gitignore
+README.md
+git_push.sh
+.travis.yml
+.php_cs
+phpunit.xml.dist
+src/Api/TokenApi.php
