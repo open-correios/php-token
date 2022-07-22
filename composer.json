@@ -7,11 +7,16 @@
         "php",
         "sdk",
         "rest",
-        "api"
+        "api",
+        "correios"
     ],
-    "homepage": "https://openapi-generator.tech",
-    "license": "unlicense",
+    "homepage": "https://cws.correios.com.br",
+    "license": "MIT",
     "authors": [
+        {
+            "name": "Igor Ribeiro",
+            "email": "igorribeiro4467@gmail.com"
+        },
         {
             "name": "OpenAPI-Generator contributors",
             "homepage": "https://openapi-generator.tech"
@@ -23,11 +28,11 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "guzzlehttp/guzzle": "^7.3",
-        "guzzlehttp/psr7": "^1.7 || ^2.0",
-        "friendsofphp/php-cs-fixer": "^3.9"
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.0 || ^9.0"
+        "phpunit/phpunit": "^8.0 || ^9.0",
+        "friendsofphp/php-cs-fixer": "^3.9"
     },
     "autoload": {
         "psr-4": { "OpenCorreios\\" : "src/" }
