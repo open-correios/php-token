@@ -1,0 +1,13 @@
+## IDE`s
+.idea/*
+.vscode/*
+.history/
+
+## Project
+gen/
+vendor/
+
+## MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
