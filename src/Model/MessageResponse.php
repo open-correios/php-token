@@ -44,7 +44,8 @@ use OpenCorreios\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
+class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable
+{
     public const DISCRIMINATOR = null;
 
     /**
@@ -136,7 +137,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null) {
+    public function __construct(array $data = null)
+    {
         $this->container['msgs'] = $data['msgs'] ?? null;
         $this->container['date'] = $data['date'] ?? null;
         $this->container['method'] = $data['method'] ?? null;
@@ -150,7 +152,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return array
      */
-    public static function openAPITypes() {
+    public static function openAPITypes()
+    {
         return self::$openAPITypes;
     }
 
@@ -159,7 +162,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return array
      */
-    public static function openAPIFormats() {
+    public static function openAPIFormats()
+    {
         return self::$openAPIFormats;
     }
 
@@ -169,7 +173,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return array
      */
-    public static function attributeMap() {
+    public static function attributeMap()
+    {
         return self::$attributeMap;
     }
 
@@ -178,7 +183,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return array
      */
-    public static function setters() {
+    public static function setters()
+    {
         return self::$setters;
     }
 
@@ -187,7 +193,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return array
      */
-    public static function getters() {
+    public static function getters()
+    {
         return self::$getters;
     }
 
@@ -196,7 +203,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string
      */
-    public function getModelName() {
+    public function getModelName()
+    {
         return self::$openAPIModelName;
     }
 
@@ -206,7 +214,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return bool True if all properties are valid
      */
-    public function valid() {
+    public function valid()
+    {
         return count($this->listInvalidProperties()) === 0;
     }
 
@@ -215,7 +224,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties() {
+    public function listInvalidProperties()
+    {
         $invalidProperties = [];
 
         return $invalidProperties;
@@ -226,7 +236,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string[]|null
      */
-    public function getMsgs() {
+    public function getMsgs()
+    {
         return $this->container['msgs'];
     }
 
@@ -237,7 +248,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setMsgs($msgs) {
+    public function setMsgs($msgs)
+    {
         $this->container['msgs'] = $msgs;
 
         return $this;
@@ -248,7 +260,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return DateTime|null
      */
-    public function getDate() {
+    public function getDate()
+    {
         return $this->container['date'];
     }
 
@@ -259,7 +272,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setDate($date) {
+    public function setDate($date)
+    {
         $this->container['date'] = $date;
 
         return $this;
@@ -270,7 +284,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string|null
      */
-    public function getMethod() {
+    public function getMethod()
+    {
         return $this->container['method'];
     }
 
@@ -281,7 +296,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setMethod($method) {
+    public function setMethod($method)
+    {
         $this->container['method'] = $method;
 
         return $this;
@@ -292,7 +308,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string|null
      */
-    public function getPath() {
+    public function getPath()
+    {
         return $this->container['path'];
     }
 
@@ -303,7 +320,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setPath($path) {
+    public function setPath($path)
+    {
         $this->container['path'] = $path;
 
         return $this;
@@ -314,7 +332,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string|null
      */
-    public function getCausa() {
+    public function getCausa()
+    {
         return $this->container['causa'];
     }
 
@@ -325,7 +344,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setCausa($causa) {
+    public function setCausa($causa)
+    {
         $this->container['causa'] = $causa;
 
         return $this;
@@ -336,7 +356,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string|null
      */
-    public function getStackTrace() {
+    public function getStackTrace()
+    {
         return $this->container['stackTrace'];
     }
 
@@ -347,7 +368,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setStackTrace($stackTrace) {
+    public function setStackTrace($stackTrace)
+    {
         $this->container['stackTrace'] = $stackTrace;
 
         return $this;
@@ -360,7 +382,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return boolean
      */
-    public function offsetExists($offset) {
+    public function offsetExists($offset)
+    {
         return isset($this->container[$offset]);
     }
 
@@ -371,7 +394,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return mixed|null
      */
-    public function offsetGet($offset) {
+    public function offsetGet($offset)
+    {
         return $this->container[$offset] ?? null;
     }
 
@@ -383,7 +407,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return void
      */
-    public function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value)
+    {
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
@@ -398,7 +423,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return void
      */
-    public function offsetUnset($offset) {
+    public function offsetUnset($offset)
+    {
         unset($this->container[$offset]);
     }
 
@@ -409,7 +435,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      * @return mixed Returns data which can be serialized by json_encode(), which is a value
      * of any type other than a resource.
      */
-    public function jsonSerialize() {
+    public function jsonSerialize()
+    {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
 
@@ -418,7 +445,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
@@ -430,9 +458,8 @@ class MessageResponse implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string
      */
-    public function toHeaderValue() {
+    public function toHeaderValue()
+    {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

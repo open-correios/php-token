@@ -53,7 +53,8 @@ use RuntimeException;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class TokenApi {
+class TokenApi
+{
     /**
      * @var ClientInterface
      */
@@ -84,7 +85,7 @@ class TokenApi {
         ClientInterface $client = null,
         Configuration   $config = null,
         HeaderSelector  $selector = null,
-                        $hostIndex = 0
+        $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
@@ -97,7 +98,8 @@ class TokenApi {
      *
      * @return int Host index
      */
-    public function getHostIndex() {
+    public function getHostIndex()
+    {
         return $this->hostIndex;
     }
 
@@ -106,14 +108,16 @@ class TokenApi {
      *
      * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($hostIndex): void {
+    public function setHostIndex($hostIndex): void
+    {
         $this->hostIndex = $hostIndex;
     }
 
     /**
      * @return Configuration
      */
-    public function getConfig() {
+    public function getConfig()
+    {
         return $this->config;
     }
 
@@ -128,7 +132,8 @@ class TokenApi {
      * @throws InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
-    public function tokenPorCartao($cartaoPostagemRequest = null) {
+    public function tokenPorCartao($cartaoPostagemRequest = null)
+    {
         list($response) = $this->tokenPorCartaoWithHttpInfo($cartaoPostagemRequest);
         return $response;
     }
@@ -144,7 +149,8 @@ class TokenApi {
      * @throws InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
-    public function tokenPorCartaoWithHttpInfo($cartaoPostagemRequest = null) {
+    public function tokenPorCartaoWithHttpInfo($cartaoPostagemRequest = null)
+    {
         $request = $this->tokenPorCartaoRequest($cartaoPostagemRequest);
 
         try {
@@ -233,7 +239,6 @@ class TokenApi {
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
@@ -273,8 +278,8 @@ class TokenApi {
      * @return Request
      * @throws InvalidArgumentException
      */
-    public function tokenPorCartaoRequest($cartaoPostagemRequest = null) {
-
+    public function tokenPorCartaoRequest($cartaoPostagemRequest = null)
+    {
         $resourcePath = '/v1/autentica/cartaopostagem';
         $formParams = [];
         $queryParams = [];
@@ -315,10 +320,8 @@ class TokenApi {
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = Query::build($formParams);
@@ -352,7 +355,8 @@ class TokenApi {
      * @return array of http client options
      * @throws RuntimeException on file opening failure
      */
-    protected function createHttpClientOption() {
+    protected function createHttpClientOption()
+    {
         $options = [];
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');

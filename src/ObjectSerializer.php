@@ -43,7 +43,8 @@ use SplFileObject;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ObjectSerializer {
+class ObjectSerializer
+{
     /** @var string */
     private static $dateTimeFormat = DateTime::ATOM;
 
@@ -52,7 +53,8 @@ class ObjectSerializer {
      *
      * @param string $format the new date format to use
      */
-    public static function setDateTimeFormat($format) {
+    public static function setDateTimeFormat($format)
+    {
         self::$dateTimeFormat = $format;
     }
 
@@ -65,7 +67,8 @@ class ObjectSerializer {
      *
      * @return scalar|object|array|null serialized form of $data
      */
-    public static function sanitizeForSerialization($data, $type = null, $format = null) {
+    public static function sanitizeForSerialization($data, $type = null, $format = null)
+    {
         if (is_scalar($data) || null === $data) {
             return $data;
         }
@@ -122,7 +125,8 @@ class ObjectSerializer {
      *
      * @return string the serialized object
      */
-    public static function toPathValue($value) {
+    public static function toPathValue($value)
+    {
         return rawurlencode(self::toString($value));
     }
 
@@ -136,7 +140,8 @@ class ObjectSerializer {
      *
      * @return string the header string
      */
-    public static function toString($value) {
+    public static function toString($value)
+    {
         if ($value instanceof DateTime) { // datetime in ISO8601 format
             return $value->format(self::$dateTimeFormat);
         } elseif (is_bool($value)) {
@@ -156,7 +161,8 @@ class ObjectSerializer {
      *
      * @return string the serialized object
      */
-    public static function toQueryValue($object) {
+    public static function toQueryValue($object)
+    {
         if (is_array($object)) {
             return implode(',', $object);
         } else {
@@ -173,7 +179,8 @@ class ObjectSerializer {
      *
      * @return string the header string
      */
-    public static function toHeaderValue($value) {
+    public static function toHeaderValue($value)
+    {
         $callable = [$value, 'toHeaderValue'];
         if (is_callable($callable)) {
             return $callable();
@@ -191,7 +198,8 @@ class ObjectSerializer {
      *
      * @return string the form string
      */
-    public static function toFormValue($value) {
+    public static function toFormValue($value)
+    {
         if ($value instanceof SplFileObject) {
             return $value->getRealPath();
         } else {
@@ -209,7 +217,8 @@ class ObjectSerializer {
      *
      * @return string
      */
-    public static function serializeCollection(array $collection, $style, $allowCollectionFormatMulti = false) {
+    public static function serializeCollection(array $collection, $style, $allowCollectionFormatMulti = false)
+    {
         if ($allowCollectionFormatMulti && ('multi' === $style)) {
             // http_build_query() almost does the job for us. We just
             // need to fix the result of multidimensional arrays.
@@ -245,7 +254,8 @@ class ObjectSerializer {
      *
      * @return object|array|null a single or an array of $class instances
      */
-    public static function deserialize($data, $class, $httpHeaders = null) {
+    public static function deserialize($data, $class, $httpHeaders = null)
+    {
         if (null === $data) {
             return null;
         }
@@ -283,7 +293,7 @@ class ObjectSerializer {
         if ($class === 'object') {
             settype($data, 'array');
             return $data;
-        } else if ($class === 'mixed') {
+        } elseif ($class === 'mixed') {
             settype($data, gettype($data));
             return $data;
         }
@@ -381,8 +391,11 @@ class ObjectSerializer {
      *
      * @return string the shorten timestamp
      */
-    public static function sanitizeTimestamp($timestamp) {
-        if (!is_string($timestamp)) return $timestamp;
+    public static function sanitizeTimestamp($timestamp)
+    {
+        if (!is_string($timestamp)) {
+            return $timestamp;
+        }
 
         return preg_replace('/(:\d{2}.\d{6})\d*/', '$1', $timestamp);
     }
@@ -395,7 +408,8 @@ class ObjectSerializer {
      *
      * @return string the sanitized filename
      */
-    public static function sanitizeFilename($filename) {
+    public static function sanitizeFilename($filename)
+    {
         if (preg_match("/.*[\/\\\\](.*)$/", $filename, $match)) {
             return $match[1];
         } else {

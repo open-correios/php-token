@@ -23,11 +23,11 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "guzzlehttp/guzzle": "^7.3",
-        "guzzlehttp/psr7": "^1.7 || ^2.0"
+        "guzzlehttp/psr7": "^1.7 || ^2.0",
+        "friendsofphp/php-cs-fixer": "^3.9"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.0 || ^9.0",
-        "friendsofphp/php-cs-fixer": "^2.12"
+        "phpunit/phpunit": "^8.0 || ^9.0"
     },
     "autoload": {
         "psr-4": { "OpenCorreios\\" : "src/" }

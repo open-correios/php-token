@@ -44,7 +44,8 @@ use OpenCorreios\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializable {
+class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializable
+{
     public const DISCRIMINATOR = null;
 
     /**
@@ -111,7 +112,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null) {
+    public function __construct(array $data = null)
+    {
         $this->container['numero'] = $data['numero'] ?? null;
     }
 
@@ -120,7 +122,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return array
      */
-    public static function openAPITypes() {
+    public static function openAPITypes()
+    {
         return self::$openAPITypes;
     }
 
@@ -129,7 +132,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return array
      */
-    public static function openAPIFormats() {
+    public static function openAPIFormats()
+    {
         return self::$openAPIFormats;
     }
 
@@ -139,7 +143,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return array
      */
-    public static function attributeMap() {
+    public static function attributeMap()
+    {
         return self::$attributeMap;
     }
 
@@ -148,7 +153,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return array
      */
-    public static function setters() {
+    public static function setters()
+    {
         return self::$setters;
     }
 
@@ -157,7 +163,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return array
      */
-    public static function getters() {
+    public static function getters()
+    {
         return self::$getters;
     }
 
@@ -166,7 +173,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return string
      */
-    public function getModelName() {
+    public function getModelName()
+    {
         return self::$openAPIModelName;
     }
 
@@ -176,7 +184,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return bool True if all properties are valid
      */
-    public function valid() {
+    public function valid()
+    {
         return count($this->listInvalidProperties()) === 0;
     }
 
@@ -185,7 +194,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties() {
+    public function listInvalidProperties()
+    {
         $invalidProperties = [];
 
         return $invalidProperties;
@@ -196,7 +206,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return string|null
      */
-    public function getNumero() {
+    public function getNumero()
+    {
         return $this->container['numero'];
     }
 
@@ -207,7 +218,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return self
      */
-    public function setNumero($numero) {
+    public function setNumero($numero)
+    {
         $this->container['numero'] = $numero;
 
         return $this;
@@ -220,7 +232,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return boolean
      */
-    public function offsetExists($offset) {
+    public function offsetExists($offset)
+    {
         return isset($this->container[$offset]);
     }
 
@@ -231,7 +244,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return mixed|null
      */
-    public function offsetGet($offset) {
+    public function offsetGet($offset)
+    {
         return $this->container[$offset] ?? null;
     }
 
@@ -243,7 +257,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return void
      */
-    public function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value)
+    {
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
@@ -258,7 +273,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return void
      */
-    public function offsetUnset($offset) {
+    public function offsetUnset($offset)
+    {
         unset($this->container[$offset]);
     }
 
@@ -269,7 +285,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      * @return mixed Returns data which can be serialized by json_encode(), which is a value
      * of any type other than a resource.
      */
-    public function jsonSerialize() {
+    public function jsonSerialize()
+    {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
 
@@ -278,7 +295,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
@@ -290,9 +308,8 @@ class CartaoPostagemRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return string
      */
-    public function toHeaderValue() {
+    public function toHeaderValue()
+    {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

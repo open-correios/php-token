@@ -45,16 +45,17 @@ use OpenCorreios\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Token implements ModelInterface, ArrayAccess, JsonSerializable {
+class Token implements ModelInterface, ArrayAccess, JsonSerializable
+{
     public const DISCRIMINATOR = null;
-    const AMBIENTE_PRODUCAO = 'PRODUCAO';
-    const AMBIENTE_HOMOLOGACAO = 'HOMOLOGACAO';
-    const AMBIENTE_DESENVOLVIMENTO = 'DESENVOLVIMENTO';
-    const AMBIENTE_LOCAL = 'LOCAL';
-    const PERFIL_S = 'S';
-    const PERFIL_A = 'A';
-    const PERFIL_PJ = 'PJ';
-    const PERFIL_PF = 'PF';
+    public const AMBIENTE_PRODUCAO = 'PRODUCAO';
+    public const AMBIENTE_HOMOLOGACAO = 'HOMOLOGACAO';
+    public const AMBIENTE_DESENVOLVIMENTO = 'DESENVOLVIMENTO';
+    public const AMBIENTE_LOCAL = 'LOCAL';
+    public const PERFIL_S = 'S';
+    public const PERFIL_A = 'A';
+    public const PERFIL_PJ = 'PJ';
+    public const PERFIL_PF = 'PF';
     /**
      * The original name of the model.
      *
@@ -182,7 +183,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null) {
+    public function __construct(array $data = null)
+    {
         $this->container['ambiente'] = $data['ambiente'] ?? null;
         $this->container['id'] = $data['id'] ?? null;
         $this->container['perfil'] = $data['perfil'] ?? null;
@@ -204,7 +206,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return array
      */
-    public static function openAPITypes() {
+    public static function openAPITypes()
+    {
         return self::$openAPITypes;
     }
 
@@ -213,7 +216,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return array
      */
-    public static function openAPIFormats() {
+    public static function openAPIFormats()
+    {
         return self::$openAPIFormats;
     }
 
@@ -223,7 +227,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return array
      */
-    public static function attributeMap() {
+    public static function attributeMap()
+    {
         return self::$attributeMap;
     }
 
@@ -232,7 +237,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return array
      */
-    public static function setters() {
+    public static function setters()
+    {
         return self::$setters;
     }
 
@@ -241,7 +247,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return array
      */
-    public static function getters() {
+    public static function getters()
+    {
         return self::$getters;
     }
 
@@ -250,7 +257,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string
      */
-    public function getModelName() {
+    public function getModelName()
+    {
         return self::$openAPIModelName;
     }
 
@@ -260,7 +268,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return bool True if all properties are valid
      */
-    public function valid() {
+    public function valid()
+    {
         return count($this->listInvalidProperties()) === 0;
     }
 
@@ -269,7 +278,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties() {
+    public function listInvalidProperties()
+    {
         $invalidProperties = [];
 
         $allowedValues = $this->getAmbienteAllowableValues();
@@ -298,7 +308,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string[]
      */
-    public function getAmbienteAllowableValues() {
+    public function getAmbienteAllowableValues()
+    {
         return [
             self::AMBIENTE_PRODUCAO,
             self::AMBIENTE_HOMOLOGACAO,
@@ -312,7 +323,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string[]
      */
-    public function getPerfilAllowableValues() {
+    public function getPerfilAllowableValues()
+    {
         return [
             self::PERFIL_S,
             self::PERFIL_A,
@@ -326,7 +338,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string|null
      */
-    public function getAmbiente() {
+    public function getAmbiente()
+    {
         return $this->container['ambiente'];
     }
 
@@ -337,7 +350,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setAmbiente($ambiente) {
+    public function setAmbiente($ambiente)
+    {
         $allowedValues = $this->getAmbienteAllowableValues();
         if (!is_null($ambiente) && !in_array($ambiente, $allowedValues, true)) {
             throw new InvalidArgumentException(
@@ -358,7 +372,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string|null
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->container['id'];
     }
 
@@ -369,7 +384,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setId($id) {
+    public function setId($id)
+    {
         $this->container['id'] = $id;
 
         return $this;
@@ -380,7 +396,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string|null
      */
-    public function getPerfil() {
+    public function getPerfil()
+    {
         return $this->container['perfil'];
     }
 
@@ -391,7 +408,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setPerfil($perfil) {
+    public function setPerfil($perfil)
+    {
         $allowedValues = $this->getPerfilAllowableValues();
         if (!is_null($perfil) && !in_array($perfil, $allowedValues, true)) {
             throw new InvalidArgumentException(
@@ -412,7 +430,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string|null
      */
-    public function getCnpj() {
+    public function getCnpj()
+    {
         return $this->container['cnpj'];
     }
 
@@ -423,7 +442,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setCnpj($cnpj) {
+    public function setCnpj($cnpj)
+    {
         $this->container['cnpj'] = $cnpj;
 
         return $this;
@@ -434,7 +454,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return int|null
      */
-    public function getPjInternacional() {
+    public function getPjInternacional()
+    {
         return $this->container['pjInternacional'];
     }
 
@@ -445,7 +466,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setPjInternacional($pjInternacional) {
+    public function setPjInternacional($pjInternacional)
+    {
         $this->container['pjInternacional'] = $pjInternacional;
 
         return $this;
@@ -456,7 +478,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string|null
      */
-    public function getCpf() {
+    public function getCpf()
+    {
         return $this->container['cpf'];
     }
 
@@ -467,7 +490,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setCpf($cpf) {
+    public function setCpf($cpf)
+    {
         $this->container['cpf'] = $cpf;
 
         return $this;
@@ -478,7 +502,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string|null
      */
-    public function getCie() {
+    public function getCie()
+    {
         return $this->container['cie'];
     }
 
@@ -489,7 +514,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setCie($cie) {
+    public function setCie($cie)
+    {
         $this->container['cie'] = $cie;
 
         return $this;
@@ -500,7 +526,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return CartaoPostagem|null
      */
-    public function getCartaoPostagem() {
+    public function getCartaoPostagem()
+    {
         return $this->container['cartaoPostagem'];
     }
 
@@ -511,7 +538,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setCartaoPostagem($cartaoPostagem) {
+    public function setCartaoPostagem($cartaoPostagem)
+    {
         $this->container['cartaoPostagem'] = $cartaoPostagem;
 
         return $this;
@@ -522,7 +550,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return int[]|null
      */
-    public function getApi() {
+    public function getApi()
+    {
         return $this->container['api'];
     }
 
@@ -533,7 +562,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setApi($api) {
+    public function setApi($api)
+    {
         $this->container['api'] = $api;
 
         return $this;
@@ -544,7 +574,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string|null
      */
-    public function getIp() {
+    public function getIp()
+    {
         return $this->container['ip'];
     }
 
@@ -555,7 +586,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setIp($ip) {
+    public function setIp($ip)
+    {
         $this->container['ip'] = $ip;
 
         return $this;
@@ -566,7 +598,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return DateTime|null
      */
-    public function getEmissao() {
+    public function getEmissao()
+    {
         return $this->container['emissao'];
     }
 
@@ -577,7 +610,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setEmissao($emissao) {
+    public function setEmissao($emissao)
+    {
         $this->container['emissao'] = $emissao;
 
         return $this;
@@ -588,7 +622,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return DateTime|null
      */
-    public function getExpiraEm() {
+    public function getExpiraEm()
+    {
         return $this->container['expiraEm'];
     }
 
@@ -599,7 +634,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setExpiraEm($expiraEm) {
+    public function setExpiraEm($expiraEm)
+    {
         $this->container['expiraEm'] = $expiraEm;
 
         return $this;
@@ -610,7 +646,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string|null
      */
-    public function getZoneOffset() {
+    public function getZoneOffset()
+    {
         return $this->container['zoneOffset'];
     }
 
@@ -621,7 +658,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setZoneOffset($zoneOffset) {
+    public function setZoneOffset($zoneOffset)
+    {
         $this->container['zoneOffset'] = $zoneOffset;
 
         return $this;
@@ -632,7 +670,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string|null
      */
-    public function getToken() {
+    public function getToken()
+    {
         return $this->container['token'];
     }
 
@@ -643,7 +682,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return self
      */
-    public function setToken($token) {
+    public function setToken($token)
+    {
         $this->container['token'] = $token;
 
         return $this;
@@ -656,7 +696,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return boolean
      */
-    public function offsetExists($offset) {
+    public function offsetExists($offset)
+    {
         return isset($this->container[$offset]);
     }
 
@@ -667,7 +708,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return mixed|null
      */
-    public function offsetGet($offset) {
+    public function offsetGet($offset)
+    {
         return $this->container[$offset] ?? null;
     }
 
@@ -679,7 +721,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return void
      */
-    public function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value)
+    {
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
@@ -694,7 +737,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return void
      */
-    public function offsetUnset($offset) {
+    public function offsetUnset($offset)
+    {
         unset($this->container[$offset]);
     }
 
@@ -705,7 +749,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      * @return mixed Returns data which can be serialized by json_encode(), which is a value
      * of any type other than a resource.
      */
-    public function jsonSerialize() {
+    public function jsonSerialize()
+    {
         return ObjectSerializer::sanitizeForSerialization($this);
     }
 
@@ -714,7 +759,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
@@ -726,9 +772,8 @@ class Token implements ModelInterface, ArrayAccess, JsonSerializable {
      *
      * @return string
      */
-    public function toHeaderValue() {
+    public function toHeaderValue()
+    {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

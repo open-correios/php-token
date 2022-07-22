@@ -34,7 +34,8 @@ namespace OpenCorreios\Model;
  * @package OpenCorreios\Model
  * @author  OpenAPI Generator team
  */
-interface ModelInterface {
+interface ModelInterface
+{
     /**
      * Array of property to type mappings. Used for (de)serialization
      *
