@@ -1,0 +1,252 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Token",
+    "description": "Serviço de token para acesso das APIs",
+    "version": "1.8.5",
+    "x-nuApi": 5,
+    "x-serviceId": "token",
+    "x-ambiente": "PRODUCAO"
+  },
+  "servers": [
+    {
+      "url": "https://api.correios.com.br/token",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Token",
+      "description": "Geração de tokens para acesso de APIs."
+    }
+  ],
+  "paths": {
+    "/v1/autentica": {
+      "post": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "Gera um token para acesso a APIs",
+        "operationId": "token",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Token"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Caso ocorra alguma validação necessária por parte do requisitante.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Caso ocorra algum erro no servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/autentica/cartaopostagem": {
+      "post": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "Gera um token para usuários externos (idCorreios).",
+        "description": "Para acessar APIs cuja autorização seja por cartão de postagem.",
+        "operationId": "tokenPorCartao",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CartaoPostagemRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Token"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Caso ocorra alguma validação necessária por parte do requisitante.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Caso ocorra algum erro no servidor.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CartaoPostagem": {
+        "type": "object",
+        "properties": {
+          "numero": {
+            "type": "string"
+          },
+          "contrato": {
+            "type": "string"
+          },
+          "dr": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "api": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "Token": {
+        "type": "object",
+        "properties": {
+          "ambiente": {
+            "type": "string",
+            "enum": [
+              "PRODUCAO",
+              "HOMOLOGACAO",
+              "DESENVOLVIMENTO",
+              "LOCAL"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "perfil": {
+            "type": "string",
+            "enum": [
+              "S",
+              "A",
+              "PJ",
+              "PF"
+            ]
+          },
+          "cnpj": {
+            "type": "string"
+          },
+          "pjInternacional": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cpf": {
+            "type": "string"
+          },
+          "cie": {
+            "type": "string"
+          },
+          "cartaoPostagem": {
+            "$ref": "#/components/schemas/CartaoPostagem"
+          },
+          "api": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "ip": {
+            "type": "string"
+          },
+          "emissao": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expiraEm": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "zoneOffset": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "CartaoPostagemRequest": {
+        "type": "object",
+        "properties": {
+          "numero": {
+            "type": "string"
+          }
+        },
+        "description": "Cartao de postagem."
+      },
+      "MessageResponse": {
+        "type": "object",
+        "properties": {
+          "msgs": {
+            "type": "array",
+            "description": "Mensagens",
+            "items": {
+              "type": "string",
+              "description": "Mensagens"
+            }
+          },
+          "date": {
+            "type": "string",
+            "description": "Data e hora de ocorrência do evento.",
+            "format": "date-time"
+          },
+          "method": {
+            "type": "string",
+            "description": "Método HTTP que foi requisitado."
+          },
+          "path": {
+            "type": "string",
+            "description": "URL que foi requisitada."
+          },
+          "causa": {
+            "type": "string",
+            "description": "A causa da mensagem."
+          },
+          "stackTrace": {
+            "type": "string",
+            "description": "Detalhe da mensagem."
+          }
+        }
+      }
+    }
+  }
+}
