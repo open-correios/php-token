@@ -365,6 +365,24 @@ class TokenApi
             }
         }
 
+        if($this->config->getApiKeyPrefix(0) === 'Basic') {
+
+            $username = $this->config->getUsername();
+            $password = $this->config->getPassword();
+
+            if( ! $username) {
+                throw new RuntimeException('Username must be present for Basic authorization.');
+            }
+
+            if( ! $password) {
+                throw new RuntimeException('Password must be present for Basic authorization.');
+            }
+
+            $options['headers'] = [
+                'Authorization' => 'Basic ' . base64_encode("$username:$password")
+            ];
+        }
+
         return $options;
     }
 }

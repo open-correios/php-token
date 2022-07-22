@@ -22,14 +22,17 @@ Para acessar APIs cuja autorização seja por cartão de postagem.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+$configuration = new \OpenCorreios\Configuration();
 
+$configuration->setUsername('my-user')
+    ->setPassword('my-password')
+    ->setApiKeyPrefix(0, 'Basic');
 
-$apiInstance = new OpenCorreios\Api\TokenApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$cartaoPostagemRequest = new \OpenCorreios\Model\CartaoPostagemRequest(); // \OpenCorreios\Model\CartaoPostagemRequest
+$apiInstance = new \OpenCorreios\Api\TokenApi(null, $configuration);
+
+$cartaoPostagemRequest = new \OpenCorreios\Model\CartaoPostagemRequest();
+
+$cartaoPostagemRequest->setNumero('0123456789');
 
 try {
     $result = $apiInstance->tokenPorCartao($cartaoPostagemRequest);
