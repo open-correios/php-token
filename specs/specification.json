@@ -21,47 +21,6 @@
     }
   ],
   "paths": {
-    "/v1/autentica": {
-      "post": {
-        "tags": [
-          "Token"
-        ],
-        "summary": "Gera um token para acesso a APIs",
-        "operationId": "token",
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Token"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Caso ocorra alguma validação necessária por parte do requisitante.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Caso ocorra algum erro no servidor.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MessageResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/v1/autentica/cartaopostagem": {
       "post": {
         "tags": [
